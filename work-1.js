@@ -1,23 +1,64 @@
-class ListNode {
-    constructor(data) {
-        this.data = data
-        this.next = null                
-    }
-}
-class LinkedList {
-    constructor(head = null) {
-        this.head = head
-        console.log(this.head)
-    }
-}
-let node1 = new ListNode(2)
-let node2 = new ListNode(53)
-let node3 = new ListNode(500)
-let node4 = new ListNode(30)
-node1.next = node2
-node2.next = node3
-node3.next = node4
+// class ListNode {
+//     constructor(data) {
+//         this.data = data
+//         this.next = null                
+//     }
+// }
+// class LinkedList {
+//     constructor(head = null) {
+//         this.head = head
+//         console.log(this.head)
+//     }
+// }
+// let node1 = new ListNode(2)
+// let node2 = new ListNode(53)
+// let node3 = new ListNode(500)
+// let node4 = new ListNode(30)
+// node1.next = node2
+// node2.next = node3
+// node3.next = node4
 
-let list = new LinkedList(node3)
+// let list = new LinkedList(node3)
 
-console.log(list.head.next.data) 
+// console.log(list.head.next.data)
+
+// let arr = [6, 5, 4, 3, 9, 8, 0];
+// let target = 10;
+// let temp = [];
+// const result = findValues(arr);
+// console.log(result);
+// function findValues(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (temp.includes(10 - arr[i])) {
+//             return [arr[i], 10 - arr[i]];
+//         } else {
+//             temp.push(arr[i])
+//         }
+//     }
+//     return console.log('No result found');
+// }
+
+// let arr = [3, 5, 6, 6, 9, 7, 3, 6];
+// var p = arr.length - 1;
+// let val = 6;
+// if (arr[p] == val) p = arr.length - 2;
+// newArray(arr, val);
+// function newArray(arr, val) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] == val) {
+//             while (arr[p] == val && p !== 0) {
+//                 console.log('hai')
+//                 p--;
+//                 console.log(`value of p is ${p}`)
+//             }
+//             console.log(`The values are ${arr[i] } and ${arr[p]}`);
+//             arr[i] = arr[p];
+//             arr[p] = val;
+//             console.log(`The values are ${arr[i] } and ${arr[p]}`);
+//         }
+//         console.log('hello')
+//     }
+//     console.log(arr);
+// }
+
+
