@@ -98,14 +98,34 @@
 // console.log(isPrime(1))
 
 // POWER OF TWO
-function isPowerOfTwo(n) {
-    if (n < 1) return false;
-    while (n > 1) {
-        if (n % 2 !== 0) return false;
-        n = n / 2;
-    }
-    return true;
-}
-console.log(isPowerOfTwo(36));
+// function isPowerOfTwo(n) {
+//     if (n < 1) return false;
+//     while (n > 1) {
+//         if (n % 2 !== 0) return false;
+//         n = n / 2;
+//     }
+//     return true;
+// }
+// console.log(isPowerOfTwo(1));
+// console.log(isPowerOfTwo(2));
+// console.log(isPowerOfTwo(5));
 
+// function isPowerOftwoBitwise(n) {
+//     if (n < 1) return false;
+//     return (n & (n - 1)) === 0
+// }
+// console.log(isPowerOftwoBitwise(1))
+// console.log(isPowerOftwoBitwise(2))
+// console.log(isPowerOftwoBitwise(5))
+
+//RECURSION
+let number=0;
+function num(number){
+    console.log(`the number is ${number}`);
+    if(number<50){
+        let newnumber=number+1;
+        num(newnumber);
+    }
+}
+num(number)
 
