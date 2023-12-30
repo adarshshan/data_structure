@@ -69,7 +69,7 @@ function fabbinossi(num) {
     return fab;
 }
 
-let array = fabbinossi(5);
+let array = fabbinossi(10);
 console.log(array);
 
 
