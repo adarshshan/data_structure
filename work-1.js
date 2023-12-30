@@ -65,17 +65,6 @@
 // let array = fabbinossi(10);
 // console.log(array);
 
-//FACTORIAL NUMBER
-// function factorial(num){
-//     let fac=1;
-//     for(let i=num;i>0;i--){
-//         fac=fac*i
-//     }
-//     return fac;
-// }
-// let result=factorial(3)
-// console.log(result)
-
 //  PRIME NUMBERS
 // function isPrime(n) {
 //     for (let i = 2; i < n / 2; i++) {
@@ -131,15 +120,67 @@
 // num(number)
 
 // FABBINOSSI USING RECURSSION
-let arr=[0,1];
-var b=2;
-function rabinoRecursion(num){
-    console.log(num);
-    if(b<num){
-        arr.push(arr[b-1]+arr[b-2])
-        b++;
-        rabinoRecursion(num);
+// let arr=[0,1];
+// var b=2;
+// function rabinoRecursion(num){
+//     console.log(num);
+//     if(b<num){
+//         arr.push(arr[b-1]+arr[b-2])
+//         b++;
+//         rabinoRecursion(num);
+//     }
+// }
+// rabinoRecursion(10);
+// console.log(arr)
+
+//RECURSIVE FACTORIAL
+
+// function factorial(num){
+//     let fac=1;
+//     for(let i=num;i>0;i--){
+//         fac=fac*i
+//     }
+//     return fac;
+// }
+// let result=factorial(3)
+// console.log(result)
+
+
+// function factRecursive(num){
+//     let fact=num;
+//     console.log(num);
+//     if(num<0) return fact;
+//     fact=fact*num-1
+//     factRecursive(num-1);
+// }
+// console.log(factRecursive(5));
+
+//LEANEAR SEARCH    
+// function searchElement(target, array) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (target === array[i]) return i;
+//     }
+//     return -1;
+// }
+// array = [3, 5, 6, 2, 3, 34, 2, 38];
+// console.log(searchElement(3, array))
+// console.log(searchElement(334, array))
+// console.log(searchElement(34, array))
+
+//BINARY SEARCH
+array = [-5, 2, 4, 6, 10]
+target = 6;
+console.log(findIndex(array, target));
+function findIndex(array, target) {
+    if (!array.length) return -1;
+    if (array[Math.floor(array.length / 2)] === target) return Math.floor(array.length / 2);
+    if (target < array[Math.floor(array.length)]) {
+        for (let i = 0; i < Math.floor(array.length / 2); i++) {
+            if (array[i] === target) return i;
+        }
+    } else {
+        for (let i = Math.floor(array.length / 2) + 1; i < array.length; i++) {
+            if (array[i] === target) return i;
+        }
     }
 }
-rabinoRecursion(10);
-console.log(arr)
