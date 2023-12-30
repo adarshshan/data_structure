@@ -168,19 +168,42 @@
 // console.log(searchElement(34, array))
 
 //BINARY SEARCH
-array = [-5, 2, 4, 6, 10]
-target = 6;
+// array = [-5, 2, 4, 6, 10,23]
+// target = 39;
+// console.log(array[Math.floor(array.length / 2)]);
+// console.log(findIndex(array, target));
+// function findIndex(array, target) {
+//     if (!array.length) return -1;
+//     if (array[Math.floor(array.length / 2)] === target) return Math.floor(array.length / 2);
+//     if (target < array[Math.floor(array.length / 2)]) {
+//         for (let i = 0; i < Math.floor(array.length / 2); i++) {
+//             if (array[i] === target) return i;
+//         }
+//     } else {
+//         for (let i = Math.floor(array.length / 2) + 1; i < array.length; i++) {
+//             if (array[i] === target) return i;
+//         }
+//     }
+//     return -1;
+// }
+let array = [-5, 2, 4, 6, 10,3,34]
+let target = 10;
 console.log(findIndex(array, target));
 function findIndex(array, target) {
-    if (!array.length) return -1;
-    if (array[Math.floor(array.length / 2)] === target) return Math.floor(array.length / 2);
-    if (target < array[Math.floor(array.length)]) {
-        for (let i = 0; i < Math.floor(array.length / 2); i++) {
-            if (array[i] === target) return i;
-        }
-    } else {
-        for (let i = Math.floor(array.length / 2) + 1; i < array.length; i++) {
-            if (array[i] === target) return i;
+    let leftIndex = 0;
+    let rightIndex = array.length - 1;
+
+    while (leftIndex <= rightIndex) {
+        let middleIndex = Math.floor((leftIndex + rightIndex) / 2)
+        // console.log(middleIndex);
+        if (target === array[middleIndex]) {
+            return middleIndex;
         }
     }
+    if (target < array[middleIndex]) {
+        rightIndex = middleIndex - 1;
+    } else {
+        leftIndex = middleIndex + 1;
+    }
+    return -1;
 }
