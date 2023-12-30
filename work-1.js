@@ -60,16 +60,29 @@
 //     }
 //     console.log(arr);
 // }
-let fab = [0, 1];
-function fabbinossi(num) {
-    let fab = [0, 1];
-    for (let i = 2; i < num; i++) {
-        fab[i] = fab[i - 1] + fab[i - 2];
-    }
-    return fab;
-}
 
-let array = fabbinossi(10);
-console.log(array);
+//FABBINOSSI
+// let fab = [0, 1];
+// function fabbinossi(num) {
+//     let fab = [0, 1];
+//     for (let i = 2; i < num; i++) {
+//         fab[i] = fab[i - 1] + fab[i - 2];
+//     }
+//     return fab;
+// }
+
+// let array = fabbinossi(10);
+// console.log(array);
+
+//FACTORIAL NUMBER
+function factorial(num){
+    let fac=1;
+    for(let i=num;i>0;i--){
+        fac=fac*i
+    }
+    return fac;
+}
+let result=factorial(3)
+console.log(result)
 
 
