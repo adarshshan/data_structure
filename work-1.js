@@ -61,15 +61,6 @@
 //     console.log(arr);
 // }
 
-//FABBINOSSI
-// let fab = [0, 1];
-// function fabbinossi(num) {
-//     let fab = [0, 1];
-//     for (let i = 2; i < num; i++) {
-//         fab[i] = fab[i - 1] + fab[i - 2];
-//     }
-//     return fab;
-// }
 
 // let array = fabbinossi(10);
 // console.log(array);
@@ -118,14 +109,37 @@
 // console.log(isPowerOftwoBitwise(2))
 // console.log(isPowerOftwoBitwise(5))
 
+//FABBINOSSI
+// let fab = [0, 1];
+// function fabbinossi(num) {
+//     let fab = [0, 1];
+//     for (let i = 2; i < num; i++) {
+//         fab[i] = fab[i - 1] + fab[i - 2];
+//     }
+//     return fab;
+// }
 //RECURSION
-let number=0;
-function num(number){
-    console.log(`the number is ${number}`);
-    if(number<50){
-        let newnumber=number+1;
-        num(newnumber);
+
+// let number=0;
+// function num(number){
+//     console.log(`the number is ${number}`);
+//     if(number<50){
+//         let newnumber=number+1;
+//         num(newnumber);
+//     }
+// }
+// num(number)
+
+// FABBINOSSI USING RECURSSION
+let arr=[0,1];
+var b=2;
+function rabinoRecursion(num){
+    console.log(num);
+    if(b<num){
+        arr.push(arr[b-1]+arr[b-2])
+        b++;
+        rabinoRecursion(num);
     }
 }
-num(number)
-
+rabinoRecursion(10);
+console.log(arr)
