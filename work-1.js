@@ -75,14 +75,26 @@
 // console.log(array);
 
 //FACTORIAL NUMBER
-function factorial(num){
-    let fac=1;
-    for(let i=num;i>0;i--){
-        fac=fac*i
+// function factorial(num){
+//     let fac=1;
+//     for(let i=num;i>0;i--){
+//         fac=fac*i
+//     }
+//     return fac;
+// }
+// let result=factorial(3)
+// console.log(result)
+
+//  PRIME NUMBERS
+function isPrime(n) {
+    for (let i = 2; i < n / 2; i++) {
+        if (n < 2) return false;
+        if (n % i == 0) {
+            return false
+        }
     }
-    return fac;
+    return true;
 }
-let result=factorial(3)
-console.log(result)
+console.log(isPrime(1))
 
 
