@@ -60,5 +60,16 @@
 //     }
 //     console.log(arr);
 // }
+let fab = [0, 1];
+function fabbinossi(num) {
+    let fab = [0, 1];
+    for (let i = 2; i < num; i++) {
+        fab[i] = fab[i - 1] + fab[i - 2];
+    }
+    return fab;
+}
+
+let array = fabbinossi(5);
+console.log(array);
 
 
