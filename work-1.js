@@ -86,15 +86,26 @@
 // console.log(result)
 
 //  PRIME NUMBERS
-function isPrime(n) {
-    for (let i = 2; i < n / 2; i++) {
-        if (n < 2) return false;
-        if (n % i == 0) {
-            return false
-        }
+// function isPrime(n) {
+//     for (let i = 2; i < n / 2; i++) {
+//         if (n < 2) return false;
+//         if (n % i == 0) {
+//             return false
+//         }
+//     }
+//     return true;
+// }
+// console.log(isPrime(1))
+
+// POWER OF TWO
+function isPowerOfTwo(n) {
+    if (n < 1) return false;
+    while (n > 1) {
+        if (n % 2 !== 0) return false;
+        n = n / 2;
     }
     return true;
 }
-console.log(isPrime(1))
+console.log(isPowerOfTwo(36));
 
 
