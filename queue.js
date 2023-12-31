@@ -1,6 +1,6 @@
 class Queue {
     constructor() {
-        this.items = [3,34,344]
+        this.items = []
     }
     enqueue(element) {
         this.items.push(element);
@@ -25,7 +25,9 @@ class Queue {
     }
 }
 const obj=new Queue();
-obj.enqueue('hello')
 obj.enqueue(10)
-obj.dequeue()
+obj.enqueue(20)
+obj.enqueue(30)
+console.log(obj.dequeue())
+console.log(obj.peek())
 obj.print()
