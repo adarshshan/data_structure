@@ -102,7 +102,7 @@ class LinkedList {
         let curr = this.head
         while (curr) {
             let next = curr.next
-            curr.next=prev
+            curr.next = prev
             prev = curr
             curr = next
         }
@@ -126,16 +126,44 @@ class LinkedList {
 const list = new LinkedList()
 console.log('list is Empty? ', list.isEmpty())
 console.log('List Size ', list.getSize())
-list.prepend(10)
-list.prepend(20)
-list.prepend(30)
-list.prepend(70)
-list.prepend(90)
-list.append(100)
-list.append(2)
-list.prepend(2)
-list.insert(500, 1)
-console.log(list.removeFrom(0))
-list.removeValue(100)
-list.reverse()
-list.print()
+// list.prepend(10)
+// list.prepend(20)
+// list.prepend(30)
+// list.prepend(70)
+// list.prepend(90)
+// list.append(100)
+// list.append(2)
+// list.prepend(2)
+// list.insert(500, 1)
+// console.log(list.removeFrom(0))
+// list.removeValue(100)
+// list.reverse()
+
+// arr.map(item=>list.append(item))
+// let distinctArr = [...new Set(arr.map(item => item))]
+// list.print()
+
+
+//CONVERTION OF ARRAY INTO LINKEDLIST
+let arr = [1, 2, 3, 3, 5, 6, 6, 6, 7, 9, 10, 10]
+const Obj2 = new LinkedList()
+arr.map(item => Obj2.append(item));
+Obj2.print()
+console.log(`The size of linked list is ${Obj2.getSize()}`)
+
+
+//REMOVE DUPLICATES
+let curr = Obj2.head
+Obj2.print()
+while (curr && curr.next !== null) {
+    let flag = 0;
+    if (curr.value === curr.next.value) {
+        curr.next = curr.next.next;
+        Obj2.size--;
+        flag = 1;
+    }
+    if (flag !== 1) {
+        curr = curr.next;
+    }
+}
+Obj2.print()

@@ -179,19 +179,27 @@ class DoublyLinkedList {
         console.log(list);
     }
 }
-const obj = new DoublyLinkedList()
-console.log('List is Empty : ', obj.isEmpty())
-console.log('Ths size of array is ', obj.getSize())
-obj.prepend(23)
-obj.prepend(40)
-obj.prepend(60)
-obj.append(300)
+// const obj = new DoublyLinkedList()
+// console.log('List is Empty : ', obj.isEmpty())
+// console.log('Ths size of array is ', obj.getSize())
+// obj.prepend(23)
+// obj.prepend(40)
+// obj.prepend(60)
+// obj.append(300)
 // obj.removeFromFront()
 // obj.removeFromEnd()
-obj.print();
+// obj.print();
 // obj.insert(1000, 5)
 // obj.deleteValue(39);
-obj.deleteFromIndex(2)
-obj.print();
-console.log(obj.getSize())
+// obj.deleteFromIndex(2)
+// obj.print();
+// console.log(obj.getSize())
 // obj.printReverse();
+
+
+//CONVERTION OF ARRAY TO LINKED LIST
+let arr = [3, 5, 7, 8, 9]
+const obj2 = new DoublyLinkedList()
+arr.map(item => obj2.append(item))
+obj2.print()
+console.log(`size of linkedlist :${obj2.getSize()}`);
