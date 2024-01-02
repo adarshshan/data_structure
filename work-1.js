@@ -1,26 +1,4 @@
-// class ListNode {
-//     constructor(data) {
-//         this.data = data
-//         this.next = null                
-//     }
-// }
-// class LinkedList {
-//     constructor(head = null) {
-//         this.head = head
-//         console.log(this.head)
-//     }
-// }
-// let node1 = new ListNode(2)
-// let node2 = new ListNode(53)
-// let node3 = new ListNode(500)
-// let node4 = new ListNode(30)
-// node1.next = node2
-// node2.next = node3
-// node3.next = node4
 
-// let list = new LinkedList(node3)
-
-// console.log(list.head.next.data)
 
 // let arr = [6, 5, 4, 3, 9, 8, 0];
 // let target = 10;
@@ -186,7 +164,7 @@
 //     }
 //     return -1;
 // }
-let array = [-5, 2, 4, 6, 10,3,34]
+let array = [-5, 2, 4, 6, 10,33,34]
 let target = 10;
 console.log(findIndex(array, target));
 function findIndex(array, target) {
