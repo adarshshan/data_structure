@@ -97,13 +97,6 @@ class LinkedList {
             return null
         }
     }
-    removeDuplicates() {
-        let curr = this.head
-        while (curr !== null) {
-            let right=
-            curr = curr.next;
-        }
-    }
     reverse() {
         let prev = null
         let curr = this.head
@@ -157,21 +150,20 @@ const Obj2 = new LinkedList()
 arr.map(item => Obj2.append(item));
 Obj2.print()
 console.log(`The size of linked list is ${Obj2.getSize()}`)
-console.log(`the result is ${Obj2.removeDuplicates()}`)
+
 
 //REMOVE DUPLICATES
-// let curr = Obj2.head
-// Obj2.print()
-// while (curr && curr.next !== null) {
-//     let flag = 0;
-//     if (curr.value === curr.next.value) {
-//         // curr.next = curr.next.next;
-//         Obj2.size--;
-//         // flag = 1;
-//         continue;
-//     }
-//     // if (flag !== 1) {
-//     curr = curr.next;
-//     // }
-// }
-// Obj2.print()
+let curr = Obj2.head
+Obj2.print()
+while (curr && curr.next !== null) {
+    let flag = 0;
+    if (curr.value === curr.next.value) {
+        curr.next = curr.next.next;
+        Obj2.size--;
+        flag = 1;
+    }
+    if (flag !== 1) {
+        curr = curr.next;
+    }
+}
+Obj2.print()
