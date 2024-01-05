@@ -15,3 +15,6 @@ function quickSort(arr){
 }
 let arr=[8, 20, -2, 4, -6,-23];
 console.log(quickSort(arr))
+
+//worst case O(n*2)
+//avg case => O(nlogn)
