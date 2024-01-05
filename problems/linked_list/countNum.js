@@ -63,4 +63,14 @@ function ElementCount(key){
     }
     return count;
 }
-console.log(`Result is ${ElementCount(3)}`)
+// console.log(`Result is ${ElementCount(3)}`)
+
+//USING RECURSION
+function ElCount(key){
+    return count(key,obj.head,c=0);
+}
+function count(key,curr,c){
+    if(key===curr.data)c++;
+    return curr.next!==null?count(key,curr.next,c):c;
+}
+console.log(ElCount(58))
