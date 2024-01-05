@@ -19,3 +19,7 @@ function Merge(leftArr, rightArr) {
 
 const arr = [8, 20, -2, 4, -6]
 console.log(mergeSort(arr))
+
+// O(logn)T  for the first function which is recursively devided into two.
+// O(n)T for the while loop
+//Overall Time complexity will be => O(nlogn)
