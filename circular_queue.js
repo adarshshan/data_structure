@@ -35,7 +35,7 @@ class CircularQueue {
         return item;
     }
     peek(){
-        if(this.isEmpty()){
+        if(!this.isEmpty()){
             return this.items[this.front]
         }
         return null
@@ -48,6 +48,7 @@ class CircularQueue {
             str+=`${this.items[i]}  `
         }
         console.log(str)
+        console.log(`Front is ${this.front} and rear is ${this.rear}`)
     }
 }
 
@@ -60,6 +61,9 @@ queue.enqueue(50)
 console.log(queue.isFull())
 queue.print()
 
+console.log(queue.dequeue())
+queue.enqueue(50)
+queue.enqueue(50)
 console.log(queue.dequeue())
 console.log(queue.peek())
 queue.print()
