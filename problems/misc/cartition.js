@@ -6,3 +6,5 @@ for(let i=0;i<A.length;i++){
     }
 }
 console.log(arr)
+
+//O(mn)T

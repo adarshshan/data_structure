@@ -24,10 +24,13 @@ class Queue {
         console.log(this.items.toString())
     }
 }
-const obj=new Queue();
-obj.enqueue(10)
-obj.enqueue(20)
-obj.enqueue(30)
-console.log(obj.dequeue())
+
+const obj=new Queue()
+obj.enqueue(3);
+obj.enqueue(9);
+obj.enqueue(20);
+obj.dequeue()
 console.log(obj.peek())
 obj.print()
+console.log(`Number of elements in the array is ${obj.size()}`);
+
