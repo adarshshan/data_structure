@@ -52,19 +52,10 @@ class CircularQueue {
     }
 }
 
-const queue=new CircularQueue(5)
-queue.enqueue(10)
-queue.enqueue(20)
-queue.enqueue(30)
-queue.enqueue(40)
-queue.enqueue(50)
-console.log(queue.isFull())
-queue.print()
-
-console.log(queue.dequeue())
-queue.enqueue(50)
-queue.enqueue(50)
-console.log(queue.dequeue())
-console.log(queue.peek())
-queue.print()
+const queue=new CircularQueue(7);
+let arr=[2,5,4,75,3,4]
+for(let i=0;i<arr.length;i++){
+    queue.enqueue(arr[i]);
+}
+// queue.dequeue()
 queue.print()

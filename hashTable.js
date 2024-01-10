@@ -16,7 +16,7 @@ class HashTable {
         const index = this._hash(key);
         const bucket = this.table[index];
         if (!bucket) {
-            this.table[index] = [key, value];
+            this.table[index] = [[key, value]];
         } else {
             const sameKeyItem = bucket.find((item) => item[0] === key)
             if (sameKeyItem) {
@@ -55,12 +55,16 @@ class HashTable {
 }
 
 const table = new HashTable(10);
-table.set("name", "Bruce");
 table.set("age", 25);
+table.set("name", "Bruce");
+table.set("mane", "Bue");
+table.set("enam", "Adarsh");
+// console.log(table.get('mane'))
 table.display();
-// console.log(table.get("name"));
+console.log(table.get("enam"));
 // table.set("mane", "Clark");
 // table.set("name", "Diana");
 // console.log(table.get("mane"));
-// table.remove("name");
+// table.remove("name");   
 // table.display();
+

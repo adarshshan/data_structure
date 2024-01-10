@@ -6,6 +6,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
     }
     return arr
   }
+  
   function partition(arr, left, right) {
     const pivot = arr[right]
     let i = left
