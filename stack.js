@@ -1,9 +1,3 @@
-// Functions to be implemented
-// push(item)
-// pop()
-// peek()
-// isEmpty()
-// printStack()
 class Stack {
     constructor() {
         this.items = []
@@ -42,7 +36,7 @@ const stack=new Stack()
 // console.log(stack.peek())
 // stack.printStack()
 
-//To reverse an array
+//To reverse an String
 let str='hello how are you guys!';
 let arr=str.split(" ");
 let reverse=[]

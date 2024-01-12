@@ -1,12 +1,5 @@
 //To Sort an array
 
-let arr = [-6, 20, 8,-2, -3,-2, 4]
-fun(arr);
-console.log(arr)
-// Big O  => O(n*2)
-
-
-
 function fun(arr){
     for(let i=0;i<arr.length;i++){
         for(let j=i+1;j<arr.length;j++){
@@ -19,3 +12,8 @@ function fun(arr){
         }
     }
 }
+
+let arr = [-6, 20, 8,-2, -3,-2, 4]
+fun(arr);
+console.log(arr)
+// Big O  => O(n*2)

@@ -29,6 +29,9 @@ const obj=new Queue()
 obj.enqueue(3);
 obj.enqueue(9);
 obj.enqueue(20);
+obj.enqueue(30);
+obj.enqueue(204);
+obj.enqueue(230);
 obj.dequeue()
 console.log(obj.peek())
 obj.print()

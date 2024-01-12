@@ -1,4 +1,3 @@
-
 function selectionSort(array){
     let n = array.length;
     for(let i = 0; i < n; i++){
@@ -16,3 +15,4 @@ function selectionSort(array){
     }
     return array;
 }
+console.log(selectionSort([3,5,7,7,7,-34,-38,-3,8,29]))
