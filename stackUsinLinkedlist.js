@@ -32,7 +32,7 @@ class Stack {
     }
     pop() {
         if (this.isEmpty()) return console.log('Stack UnderFlow!');
-        if (this.size === 0) {
+        if (this.size === 1) {
             this.start = null
             this.top = null;
             this.size--;
