@@ -74,15 +74,28 @@ class MaxHeap {
     }
 }
 
-const he = new MinHeap()
-he.add(23)
-he.add(2)
-he.add(3)
-he.add(33)
-he.add(22)
-he.add(20)
-he.add(1)
-he.printMinHeap()
-he.remove();
-console.log(`...........`)
-he.printMinHeap()
+// const he = new MinHeap()
+
+// he.add(23)
+// he.add(2)
+// he.add(3)
+// he.add(33)
+// he.add(22)
+// he.add(20)
+// he.add(1)
+// he.printMinHeap()
+// he.remove();
+// console.log(`...........`)
+// he.printMinHeap()
+function heapSort(arr){
+    const heap=new MaxHeap();
+    let sortedArr=[]
+    for(let i=0;i<arr.length;i++){
+        heap.add(arr[i]);
+    }
+    for(let i=0;i<arr.length;i++){
+        sortedArr.push(heap.remove());
+    }
+    return sortedArr.reverse();
+}
+console.log(heapSort([213,5,7,8,54,8]))

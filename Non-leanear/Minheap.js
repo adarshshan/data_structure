@@ -79,21 +79,36 @@ class MinHeap {
     }
 }
 
-const heap=new MinHeap()
-heap.add(22)
-heap.add(18)
-heap.add(26)
-heap.add(34)
-heap.add(40)
-heap.add(45)
-heap.add(8)
-heap.add(10)
-heap.add(15)
-heap.add(20)
-heap.add(25)
-heap.print();
-console.log(heap.peek())
-console.log(`Deleted ${heap.remove()}`);
-console.log(`Deleted ${heap.remove()}`);
-heap.print()
+// const heap=new MinHeap()
+// heap.add(22)
+// heap.add(18)
+// heap.add(26)
+// heap.add(34)
+// heap.add(40)
+// heap.add(45)
+// heap.add(8)
+// heap.add(10)
+// heap.add(15)
+// heap.add(20)
+// heap.add(25)
+// heap.print();
+// console.log(heap.peek())
+// console.log(`Deleted ${heap.remove()}`);
+// console.log(`Deleted ${heap.remove()}`);
+// heap.print()
+
+//HEAP SORT
+function heapSort(arr){
+    const he=new MinHeap()
+    let sortedArr=[];
+    for(let i=0;i<arr.length;i++){
+        he.add(arr[i]);
+    }
+    for(let i=0;i<arr.length;i++){
+        sortedArr.push(he.remove());
+    }
+    return sortedArr;
+}
+console.log(heapSort([3,6,33,234,22,2,1,.5]))
+
 
