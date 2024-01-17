@@ -1,91 +1,88 @@
 class TrieNode {
-    constructor() {
-      this.children = {};
-      this.isEndOfWord = false;
-    }
-  }
-  
-  class Trie {
-    constructor() {
-      this.root = new TrieNode();
-    }
-  
-    insert(word) {
-      let node = this.root;
-      for (let i = 0; i < word.length; i++) {
-        let char = word[i];
-        if (!node.children[char]) {
-          node.children[char] = new TrieNode();
-        }
-        node = node.children[char];
+  constructor(key) {
+    this.key = key;
+    this.parant = null;
+    this.children = {};
+    this.end = false;
+    this.getWord = () => {
+      let output = [];
+      let node = this;
+      while (node !== null) {
+        output.unshift(node.key);
+        node = node.parant;
       }
-      node.isEndOfWord = true;
+      return output.join('');
     }
-  
-    search(word) {
-      let node = this.root;
-  
-      for (let i = 0; i < word.length; i++) {
-        let char = word[i];
-  
-        if (!node.children[char]) {
-          return false;
-        }
-        node = node.children[char];
-      }
-      return node.isEndOfWord;
-    }
-  
-    startsWith(prefix) {
-      let node = this.root;
-      for (let i = 0; i < prefix.length; i++) {
-        let char = prefix[i];
-        if (!node.children[char]) {
-          return false;
-        }
-        node = node.children[char];
-      }
-      return true;
-    }
-  }
-  
-  const trie = new Trie();
-
-// insert all of the article titles into the trie
-const articleTitles = [
-  "JavaScript Basics",
-  "Advanced JavaScript Techniques",
-  "Introduction to React",
-  "Getting Started with Node.js",
-];
-articleTitles.forEach((title) => trie.insert(title.toLowerCase()));
-
-// search for article titles that start with the user's query
-const userInput = "jav";
-const suggestions = [];
-let node = trie.root;
-
-for (let i = 0; i < userInput.length; i++) {
-  const char = userInput[i];
-  if (!node.children[char]) {
-    break;
-  }
-  node = node.children[char];
-}
-
-if (node.isEndOfWord) {
-  suggestions.push(userInput);
-}
-
-function findSuggestions(node, prefix) {
-  if (node.isEndOfWord) {
-    suggestions.push(prefix);
-  }
-  for (const [char, child] of Object.entries(node.children)) {
-    findSuggestions(child, prefix + char);
   }
 }
+class Trie {
+  constructor() {
+    this.root = new TrieNode(null);
+  }
+  insert(word) {
+    if (!word) return;
+    let node = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (!node.children[word[i]]) {
+        let newNode = new TrieNode(word[i]);
+        newNode.parant = node;
+        node.children[word[i]] = newNode;
+      }
+      node = node.children[word[i]];
+      if (i === word.length - 1) node.end = true;
+    }
+  }
+  contains(word) {
+    let node = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (node.children[word[i]]) node = node.children[word[i]];
+      else return false;
+    }
+    return node.end;
+  }
+  find(prefix) {
+    let node = this.root;
+    let output = []
+    for (let i = 0; i < prefix.length; i++) {
+      if (node.children[prefix[i]]) node = node.children[prefix[i]];
+      else return output;
+    }
+    this.findAllWords(node, output);
+    return output;
+  }
+  findAllWords(node, arr) {
+    if (node.end) arr.unshift(node.getWord());
+    for (let child in node.children) {
+      this.findAllWords(node.children[child], arr);
+    }
+  }
+  remove(word) {
+    if (!word) return;
+    let node = this.root;
+    removeWord(node, word);
+    function removeWord(node, word) {
+      if (node.end && node.getWord() === word) {
+        let hasChildren = Object.keys(node.children).length > 0;
+        if (hasChildren) node.end = false;
+        else node.parant.children = {};
+        return true;
+      }
+      for (let child in node.children) {
+        removeWord(node.children[child], word);
+      }
+      return false;
+    }
+  }
 
-findSuggestions(node, userInput);
+}
 
-console.log(suggestions);
+const trie = new Trie();
+trie.insert('adarsh')
+trie.insert('adar')
+trie.insert('athira')
+trie.insert('abinesh')
+trie.insert('keerthi')
+console.log(trie.contains('keerthi'))
+trie.remove('keerthi')
+console.log(trie.contains('keerthi'))
+console.log(trie.find('a'))

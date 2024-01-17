@@ -36,7 +36,7 @@ const Trie = function () {
         }
         return node.end;
     };
-    this.find = function (prefix) {
+    this.   find = function (prefix) {
         let node = this.root;
         let output = [];
         for (let i = 0; i < prefix.length; i++) {
@@ -46,16 +46,16 @@ const Trie = function () {
         findAllWords(node, output);
         return output;
     };
-    const findAllWords = (node, arr) => {
+    const findAllWords = (node, arr) => {   
         if (node.end) arr.unshift(node.getWord());
         for (let child in node.children) {
             findAllWords(node.children[child], arr);
         }
     }
     this.remove = function (word) {
-        let root = this.root;
+        let node = this.root;
         if (!word) return;
-        removeWord(root, word);
+        removeWord(node, word);
         function removeWord (node, word) {
             if (node.end && node.getWord() === word) {
                 let hasChildren = Object.keys(node.children).length > 0;
