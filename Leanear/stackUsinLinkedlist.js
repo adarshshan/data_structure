@@ -17,8 +17,6 @@ class Stack {
     push(data) {
         const node = new Node(data);
         if (this.isEmpty()) {
-            node.next = null
-            node.prev = null
             this.start = node;
             this.top = node;
         } else {
@@ -26,7 +24,6 @@ class Stack {
             node.prev = this.top;
             node.next = null;
             this.top = node;
-
         }
         this.size++;
     }
@@ -62,7 +59,7 @@ class Stack {
     }
 }
 
-const stack=new Stack()
+const stack = new Stack()
 stack.push(10);
 stack.push(20);
 stack.push(30);

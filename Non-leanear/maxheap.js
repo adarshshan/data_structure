@@ -87,6 +87,8 @@ class MaxHeap {
 // he.remove();
 // console.log(`...........`)
 // he.printMinHeap()
+
+
 function heapSort(arr){
     const heap=new MaxHeap();
     let sortedArr=[]

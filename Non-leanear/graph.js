@@ -2,49 +2,117 @@ class Graph {
     constructor() {
         this.adjacencyList = {}
     }
-    addNode(node) {
-        if (!this.adjacencyList[node]) this.adjacencyList[node] = [];
+    addVertex(vertex) {
+        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = new Set();
     }
-    addConnection(node1, node2) {
-        if (!this.hasNode(node1)) this.addNode(node1)
-        if (!this.hasNode(node2)) this.addNode(node2);
-        this.adjacencyList[node1].push(node2);
-        this.adjacencyList[node2].push(node1);
+    addEdge(vertex1, vertex2) {
+        if (!this.hasEdge(vertex1)) this.addVertex(vertex1);
+        if (!this.hasEdge(vertex2)) this.addVertex(vertex2);
+        this.adjacencyList[vertex1].add(vertex2);
+        this.adjacencyList[vertex2].add(vertex1);
     }
-    removeNode(node) {
-        while (this.adjacencyList[node].length) {
-            const adjacentNode = this.adjacencyList[node].pop();
-            this.removeConnection(node, adjacentNode);
+    removeVertex(vertex) {
+        for (let neighbor in this.adjacencyList[vertex]) {
+            this.removeEdge(neighbor, vertex)
         }
-        delete this.adjacencyList[node];
+        delete this.adjacencyList[vertex]
     }
-    removeConnection(node1, node2) {
-        this.adjacencyList[node1] = this.adjacencyList[node1].filter(item => item !== node2);
-        this.adjacencyList[node2] = this.adjacencyList[node2].filter(item => item !== node1);
+    removeEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1].delete(vertex2);
+        this.adjacencyList[vertex2].delete(vertex1);
     }
-    hasNode(node) {
-        return this.adjacencyList[node] ? true : false;
+    hasEdge(vertex) {
+        return this.adjacencyList[vertex] ? true : false;
     }
-    printGraph(){
-        let keys=this.adjacencyList.keys();
-        for(let v of keys){
-            let eList=this.adjacencyList.get(v);
-            let data='';
-            for(let e in eList){
-                data+=eList[e]+' '; 
+
+    bfs() {
+        let visited = {};
+        let result = [];
+        for (let vertex in this.adjacencyList) {
+            if (!visited[vertex]) {
+                let queue = [vertex];
+                visited[vertex] = true;
+                while (queue.length) {
+                    let currentVertex = queue.shift();
+                    result.push(currentVertex);
+
+                    for (let neighbor of this.adjacencyList[currentVertex]) {
+                        if (!visited[neighbor]) {
+                            queue.push(neighbor);
+                            visited[neighbor] = true;
+                        }
+                    }
+                }
             }
-            console.log(v + '->' +data);
+        }
+
+        return result;
+    }
+
+    dfs() {
+        let visited = {};
+        let result = [];
+
+        for (let vertex in this.adjacencyList) {
+            if (!visited[vertex]) {
+                let stack = [vertex];
+                visited[vertex] = true;
+
+                while (stack.length) {
+                    let currentVertex = stack.pop();
+                    result.push(currentVertex);
+
+                    for (let neighbor of this.adjacencyList[currentVertex]) {
+                        if (!visited[neighbor]) {
+                            stack.push(neighbor);
+                            visited[neighbor] = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    display() {
+        for (let vertex in this.adjacencyList) {
+            console.log(vertex, "->", [...this.adjacencyList[vertex]])
         }
     }
 }
+
+
 const graph = new Graph();
-graph.addNode('adarsh')
-graph.addNode('shanu')
-graph.addNode('king')
-graph.addConnection('adarsh', 'kerala')
-graph.addConnection('abinesh', 'kerala')
-graph.addConnection('abinesh', 'king')
-graph.addConnection('king', 'adarsh')
-graph.addConnection('king', 'shanu')
+
+graph.addVertex("0")
+graph.addVertex("1")
+graph.addVertex("5")
+graph.addVertex("3")
+graph.addVertex("4")
+graph.addVertex("6")
+graph.addVertex("7")
+graph.addVertex("8")
+graph.addVertex("16")
+graph.addVertex("20")
+graph.addVertex("30")
+graph.addVertex("21")
+
+
+graph.addEdge("5", "3")
+graph.addEdge("3", "0")
+graph.addEdge("0", "1")
+graph.addEdge("0", "6")
+graph.addEdge("6", "7")
+graph.addEdge("6", "8")
+graph.addEdge("6", "4")
+graph.addEdge("4", "20")
+graph.addEdge("7", "8")
+graph.addEdge("7", "16")
+graph.addEdge("30", "21")
+
+
 console.log(graph)
-graph.printGraph()
+console.log(`` + graph.bfs())
+console.log(`` + graph.dfs())
+graph.display()

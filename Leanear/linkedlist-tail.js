@@ -10,12 +10,6 @@ class LinkedList {
         this.tail = null;
         this.size = 0;
     }
-    isEmpty() {
-        return this.size === 0;
-    }
-    getSize() {
-        return this.size;
-    }
     prepend(value) {
         const node = new Node(value);
         if (this.isEmpty()) {
@@ -88,6 +82,12 @@ class LinkedList {
             }
             console.log(list)
         }
+    }
+    isEmpty() {
+        return this.size === 0;
+    }
+    getSize() {
+        return this.size;
     }
 }
 

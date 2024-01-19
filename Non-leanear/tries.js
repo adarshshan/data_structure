@@ -57,20 +57,23 @@ class Trie {
     }
   }
   remove(word) {
-    if (!word) return;
-    let node = this.root;
-    removeWord(node, word);
-    function removeWord(node, word) {
-      if (node.end && node.getWord() === word) {
-        let hasChildren = Object.keys(node.children).length > 0;
-        if (hasChildren) node.end = false;
-        else node.parant.children = {};
-        return true;
+    try {
+      let node = this.root;
+      removeWord(node, word);
+      function removeWord( word,node) {
+        if (node.end && node.getWord() === word) {
+          let hasChildren = Object.keys(node.children).length > 0;
+          if (hasChildren) node.end = false;
+          else node.parant.children = {};
+          return true;
+        }
+        for (let child in node.children) {
+          removeWord( word,node.children[child]);
+        }
+        return false;
       }
-      for (let child in node.children) {
-        removeWord(node.children[child], word);
-      }
-      return false;
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -84,6 +87,6 @@ trie.insert('dipi')
 trie.insert('abinesh')
 trie.insert('dipeeee')
 console.log(trie.contains('dipi'))
-trie.remove('dipi')
+trie.remove('dipdi')
 console.log(trie.contains('dipi'))
 console.log(trie.find('a'))
