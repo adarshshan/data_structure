@@ -3,20 +3,20 @@ class Graph {
         this.adjacencyList = {}
     }
     addVertex(vertex) {
-        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = new Set();
+        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = new Set();//O(1)
     }
     addEdge(vertex1, vertex2) {
         if (!this.hasEdge(vertex1)) this.addVertex(vertex1);
         if (!this.hasEdge(vertex2)) this.addVertex(vertex2);
         this.adjacencyList[vertex1].add(vertex2);
         this.adjacencyList[vertex2].add(vertex1);
-    }
+    }//O(1)
     removeVertex(vertex) {
         for (let neighbor in this.adjacencyList[vertex]) {
             this.removeEdge(neighbor, vertex)
         }
         delete this.adjacencyList[vertex]
-    }
+    }//O(1)
     removeEdge(vertex1, vertex2) {
         this.adjacencyList[vertex1].delete(vertex2);
         this.adjacencyList[vertex2].delete(vertex1);

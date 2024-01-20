@@ -4,7 +4,7 @@ class TrieNode {
     this.parant = null;
     this.children = {};
     this.end = false;
-    this.getWord = () => {
+    this.getWord = () => {//O(m)  length of word
       let output = [];
       let node = this;
       while (node !== null) {
@@ -32,6 +32,7 @@ class Trie {
       if (i === word.length - 1) node.end = true;
     }
   }
+  //O(m)  length of word
   contains(word) {
     let node = this.root;
     for (let i = 0; i < word.length; i++) {
@@ -40,6 +41,7 @@ class Trie {
     }
     return node.end;
   }
+  //O(m)  length of word
   find(prefix) {
     let node = this.root;
     let output = []
@@ -57,26 +59,22 @@ class Trie {
     }
   }
   remove(word) {
-    try {
-      let node = this.root;
-      removeWord(node, word);
-      function removeWord( word,node) {
-        if (node.end && node.getWord() === word) {
-          let hasChildren = Object.keys(node.children).length > 0;
-          if (hasChildren) node.end = false;
-          else node.parant.children = {};
-          return true;
-        }
-        for (let child in node.children) {
-          removeWord( word,node.children[child]);
-        }
-        return false;
+    let node = this.root;
+    removeWord(node, word);
+    function removeWord(word, node) {
+      if (node.end && node.getWord() === word) {
+        let hasChildren = Object.keys(node.children).length > 0;
+        if (hasChildren) node.end = false;
+        else node.parant.children = {};
+        return true;
       }
-    } catch (error) {
-      console.log(error)
+      for (let child in node.children) {
+        removeWord(word, node.children[child]);
+      }
+      return false;
     }
   }
-
+//Time complextiy will be length of word O(l);  
 }
 
 const trie = new Trie();
@@ -89,4 +87,4 @@ trie.insert('dipeeee')
 console.log(trie.contains('dipi'))
 trie.remove('dipdi')
 console.log(trie.contains('dipi'))
-console.log(trie.find('a'))
+console.log(trie.find('a` '))

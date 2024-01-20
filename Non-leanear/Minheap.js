@@ -4,14 +4,14 @@ class MinHeap {
     }
     add(item) {
         this.heap.push(item);
-        this.heapifyUp();
+        this.heapifyUp();//O (log n)T
     }
     remove() {
         if (this.heap.length === 0) return null;
         const item=this.heap[0];
         this.heap[0]=this.heap[this.heap.length-1];
         this.heap.pop();
-        this.heapifyDown();
+        this.heapifyDown();//O(log n)T
         return item;
     }
     heapifyDown(){

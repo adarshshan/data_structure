@@ -4,14 +4,14 @@ class MaxHeap {
     }
     add(item) {
         this.heap.push(item);
-        this.heapifyUp();
+        this.heapifyUp();//O(log n);
     }
     remove() {
         if (this.heap.length === 0) return null;
         let item = this.heap[0];
         this.heap[0] = this.heap[this.heap.length - 1];
         this.heap.pop();
-        this.heapifyDown();
+        this.heapifyDown();//O(log n);
         return item;
     }
     heapifyDown() {
@@ -89,6 +89,8 @@ class MaxHeap {
 // he.printMinHeap()
 
 
+
+//Heap Sort
 function heapSort(arr){
     const heap=new MaxHeap();
     let sortedArr=[]
