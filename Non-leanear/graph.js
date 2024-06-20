@@ -12,7 +12,7 @@ class Graph {
         this.adjacencyList[vertex2].add(vertex1);
     }//O(1)
     removeVertex(vertex) {
-        for (let neighbor in this.adjacencyList[vertex]) {
+        for (let neighbor of this.adjacencyList[vertex]) {
             this.removeEdge(neighbor, vertex)
         }
         delete this.adjacencyList[vertex]
@@ -82,37 +82,53 @@ class Graph {
     }
 }
 
-
-const graph = new Graph();
-
-graph.addVertex("0")
-graph.addVertex("1")
-graph.addVertex("5")
-graph.addVertex("3")
-graph.addVertex("4")
-graph.addVertex("6")
-graph.addVertex("7")
-graph.addVertex("8")
-graph.addVertex("16")
-graph.addVertex("20")
-graph.addVertex("30")
-graph.addVertex("21")
-
-
-graph.addEdge("5", "3")
-graph.addEdge("3", "0")
-graph.addEdge("0", "1")
-graph.addEdge("0", "6")
-graph.addEdge("6", "7")
-graph.addEdge("6", "8")
-graph.addEdge("6", "4")
-graph.addEdge("4", "20")
-graph.addEdge("7", "8")
-graph.addEdge("7", "16")
-graph.addEdge("30", "21")
+const gr = new Graph();
+gr.addVertex('s')
+gr.addVertex('i')
+gr.addVertex('e')
+gr.addVertex('m')
+gr.addVertex('k')
+gr.addEdge('s', 'e')
+gr.addEdge('s', 'w')
+gr.addEdge('s', 'p')
+gr.addEdge('s', 'q')
+gr.addEdge('s', 'n')
+gr.addEdge('s', 'b')
+console.log(gr)
+gr.removeVertex('s');
+console.log(gr);
 
 
-console.log(graph)
-console.log(`` + graph.bfs())
-console.log(`` + graph.dfs())
-graph.display()
+// const graph = new Graph();
+
+// graph.addVertex("0")
+// graph.addVertex("1")
+// graph.addVertex("5")
+// graph.addVertex("3")
+// graph.addVertex("4")
+// graph.addVertex("6")
+// graph.addVertex("7")
+// graph.addVertex("8")
+// graph.addVertex("16")
+// graph.addVertex("20")
+// graph.addVertex("30")
+// graph.addVertex("21")
+
+
+// graph.addEdge("5", "3")
+// graph.addEdge("3", "0")
+// graph.addEdge("0", "1")
+// graph.addEdge("0", "6")
+// graph.addEdge("6", "7")
+// graph.addEdge("6", "8")
+// graph.addEdge("6", "4")
+// graph.addEdge("4", "20")
+// graph.addEdge("7", "8")
+// graph.addEdge("7", "16")
+// graph.addEdge("30", "21")
+
+
+// console.log(graph)
+// console.log(`` + graph.bfs())
+// console.log(`` + graph.dfs())
+// graph.display()

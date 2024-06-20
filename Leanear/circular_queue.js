@@ -13,7 +13,6 @@ class CircularQueue {
         return this.currentLength === 0;
     }
     enqueue(element) {
-        
         if (!this.isFull()) {
             this.rear = (this.rear + 1) % this.capacity
             this.items[this.rear] = element

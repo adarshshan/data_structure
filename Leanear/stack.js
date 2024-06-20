@@ -1,55 +1,41 @@
-class Stack {
+//STACK USING ARRAY
+
+class stack {
     constructor() {
-        this.items = []
+        this.item = [];
     }
-    push(item) {
-        this.items.push(item);
+    push(value) {
+        this.item.push(value);
     }
     pop() {
-        if (this.items.length === 0) return 'underflow';
-        return this.items.pop();
+        this.item.pop();
     }
     peek() {
-        return this.items[this.items.length - 1];
+        return this.item[this.getSize() - 1];
     }
-    isEmpty(){
-        return this.items.length===0;
+    print() {
+        let list = '';
+        this.item.map(item => list += item + ' ');
+        return list;
     }
-    getSize(){
-        return this.items.length;
+    isEmpty() {
+        return this.item.length === 0;
     }
-    printStack(){
-        let Str=''
-        for(let i=0;i<this.items.length;i++){
-            Str+=`${this.items[i]} `;
-        }
-        console.log(Str);
+    getSize() {
+        return this.item.length;
     }
 }
 
-const stack=new Stack()
-// stack.push(10);
-// stack.push(20);
-// stack.push(30);
-// stack.push(40);
-// stack.pop()
-// console.log(stack.peek())
-// stack.printStack()
+const st = new stack();
+st.push(34)
+st.push(334)
+st.push(90)
+st.push(84)
+console.log(st.print());
+// st.pop();
+console.log(st.print());
+console.log(st.peek());
 
-//To reverse an String
-let str='hello how are you guys!';
-let arr=str.split(" ");
-let reverse=[]
-console.log(arr)
-for(let i of arr){
-    stack.push(i)
-}
-console.log(`the length is ${stack.getSize()}`)
-let len=stack.getSize()
-console.log(`the length of stack is ${len}`)
-for(let i=0;i<len;i++){
-    let val=stack.pop();
-    reverse.push(val);
-}
-console.log(`Reversed string is ${reverse} `);
-stack.printStack()
+
+
+

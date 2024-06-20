@@ -113,10 +113,10 @@ class BinarySearchTree {
     isvalidbst() {
         return this.isBST(this.root, -Infinity, Infinity)
     }
-    isBST(node,min,max){
-        if(node===null)return true;
-        if(node.data<=min||node.data>=max)return false;
-        return this.isBST(node.left,min,node.data)&&this.isBST(node.right,node.data,max);
+    isBST(node, min, max) {
+        if (node === null) return true;
+        if (node.data <= min || node.data >= max) return false;
+        return this.isBST(node.left, min, node.data) && this.isBST(node.right, node.data, max);
     }
 }
 
@@ -146,24 +146,24 @@ obj.inorder(obj.root);
 
 
 // To check the given binary trees are same
-const case1 = new BinarySearchTree()
-case1.insert(1)
-case1.insert(2)
-case1.insert(3)
-const case2 = new BinarySearchTree()
-case2.insert(1)
-case2.insert(2)
-case2.insert(3)
+// const case1 = new BinarySearchTree()
+// case1.insert(1)
+// case1.insert(2)
+// case1.insert(3)
+// const case2 = new BinarySearchTree()
+// case2.insert(1)
+// case2.insert(2)
+// case2.insert(3)
 
-let isSameTree = function (p, q) {
-    let a = conputeHashTree(p)
-    let b = conputeHashTree(q);
-    return a === b;
-};
-function conputeHashTree(root) {
-    if (root.left === null || root.right === null) return null;
-    let lefthash = conputeHashTree(root.left);
-    let righthash = conputeHashTree(root.right);
-    return `(${root.val}${lefthash}${righthash})`;
-}
-console.log(isSameTree(case1, case2));
+// let isSameTree = function (p, q) {
+//     let a = conputeHashTree(p)
+//     let b = conputeHashTree(q);
+//     return a === b;
+// };
+// function conputeHashTree(root) {
+//     if (root.left === null || root.right === null) return null;
+//     let lefthash = conputeHashTree(root.left);
+//     let righthash = conputeHashTree(root.right);
+//     return `(${root.val}${lefthash}${righthash})`;
+// }
+// console.log(isSameTree(case1, case2));

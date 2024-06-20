@@ -60,7 +60,7 @@ class Trie {
   }
   remove(word) {
     let node = this.root;
-    removeWord(node, word);
+    removeWord(word, node);
     function removeWord(word, node) {
       if (node.end && node.getWord() === word) {
         let hasChildren = Object.keys(node.children).length > 0;
@@ -74,7 +74,7 @@ class Trie {
       return false;
     }
   }
-//Time complextiy will be length of word O(l);  
+  //Time complextiy will be length of word O(l);  
 }
 
 const trie = new Trie();
