@@ -26,7 +26,7 @@ class Graph {
     }
 
     bfs() {
-        let visited = {};
+        let visited = {};   
         let result = [];
         for (let vertex in this.adjacencyList) {
             if (!visited[vertex]) {

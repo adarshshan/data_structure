@@ -2,6 +2,7 @@ class MaxHeap {
     constructor() {
         this.heap = [];
     }
+    
     add(item) {
         this.heap.push(item);
         this.heapifyUp();//O(log n);
