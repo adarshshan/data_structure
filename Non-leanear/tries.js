@@ -4,15 +4,16 @@ class TrieNode {
     this.parant = null;
     this.children = {};
     this.end = false;
-    this.getWord = () => {//O(m)  length of word
+    this.getWord = () => {
+      //O(m)  length of word
       let output = [];
       let node = this;
       while (node !== null) {
         output.unshift(node.key);
         node = node.parant;
       }
-      return output.join('');
-    }
+      return output.join("");
+    };
   }
 }
 class Trie {
@@ -44,7 +45,7 @@ class Trie {
   //O(m)  length of word
   find(prefix) {
     let node = this.root;
-    let output = []
+    let output = [];
     for (let i = 0; i < prefix.length; i++) {
       if (node.children[prefix[i]]) node = node.children[prefix[i]];
       else return output;
@@ -65,7 +66,7 @@ class Trie {
       if (node.end && node.getWord() === word) {
         let hasChildren = Object.keys(node.children).length > 0;
         if (hasChildren) node.end = false;
-        else node.parant.children = {};
+        else delete node.parant.children[node];
         return true;
       }
       for (let child in node.children) {
@@ -74,17 +75,17 @@ class Trie {
       return false;
     }
   }
-  //Time complextiy will be length of word O(l);  
+  //Time complextiy will be length of word O(l);
 }
 
 const trie = new Trie();
-trie.insert('adarsh')
-trie.insert('adar')
-trie.insert('avathar')
-trie.insert('dipi')
-trie.insert('abinesh')
-trie.insert('dipeeee')
-console.log(trie.contains('dipi'))
-trie.remove('dipi')
-console.log(trie.contains('dipi'))
-console.log(trie.find('d'))
+trie.insert("adarsh");
+trie.insert("adar");
+trie.insert("avathar");
+trie.insert("dipi");
+trie.insert("abinesh");
+trie.insert("dipeeee");
+console.log(trie.contains("dipi"));
+trie.remove("dipi");
+console.log(trie.contains("dipi"));
+console.log(trie.find("d"));
